@@ -1,0 +1,112 @@
+<!-- Edit WebQuest Page -->
+<div ng-controller="EditQuestCtrl">
+
+    <!-- Page's Title -->
+    <p class="page-title"> Edit WebQuest</p>
+    <span class="title-line"></span>
+
+    <!-- Form WebQuest -->
+    <form method="post" role="form">
+
+        <!-- 1st Question and Facility in Accordion -->
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    1st Question and Facility
+                    <i class="pull-right glyphicon"
+                       ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </accordion-heading>
+                <!-- 1st Question -->
+                <div class="form-group">
+                    <label> 1st Question </label>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                </div>
+                <!-- Facility -->
+                <div class="form-group">
+                    <label> Facility </label>
+                    <select>
+                        <option> Lorem Ipslum</option>
+                    </select>
+                </div>
+            </accordion-group>
+        </accordion>
+        <!-- #1st Question and Facility in Accordion -->
+
+        <!-- 2nd Question and Day of Month in Accordion -->
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    2nd Question and Day of Month
+                    <i class="pull-right glyphicon"
+                       ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </accordion-heading>
+                <!-- 2nd Question -->
+                <div class="form-group">
+                    <label> 2nd Question </label>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                </div>
+                <!-- Day of Month -->
+                <div class="form-group">
+                    <label> Day of Month </label>
+                    <select>
+                        <option> 1</option>
+                    </select>
+                </div>
+            </accordion-group>
+        </accordion>
+        <!-- #2nd Question and Day of Month in Accordion -->
+
+        <!-- Prizes in Accordion -->
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    Prizes
+                    <i class="pull-right glyphicon"
+                       ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </accordion-heading>
+                <div class="form-group">
+                    <label> Prizes </label>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                </div>
+            </accordion-group>
+        </accordion>
+        <!-- #Prizes in Accordion -->
+
+        <!-- Rules in Accordion -->
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    Rules
+                    <i class="pull-right glyphicon"
+                       ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </accordion-heading>
+                <div class="form-group">
+                    <label> Rules </label>
+
+                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                </div>
+            </accordion-group>
+        </accordion>
+        <!-- #Rules in Accordion -->
+
+        <!-- Sponsors in Accordion -->
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    Sponsors
+                    <i class="pull-right glyphicon"
+                       ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </accordion-heading>
+                <div class="form-group">
+                    <label> Sponsors </label>
+
+                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                </div>
+            </accordion-group>
+        </accordion>
+        <!-- #Sponsors in Accordion -->
+        <button class="btn btn-default"> Revert</button>
+        <button class="btn btn-default"> Submit</button>
+    </form>
+</div>
+
