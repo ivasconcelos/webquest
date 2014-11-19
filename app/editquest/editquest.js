@@ -9,29 +9,65 @@ angular.module('editquest', ['ngRoute'])
   });
 }])
 
-.controller('EditQuestCtrl', ['$scope',function($scope) {
+.controller('EditQuestCtrl', ['$scope','$http',function($scope, $http) {
         $scope.tinymceOptions = {
             handle_event_callback: function (e) {
                 // put logic here for keypress
             }
         };
-        function webquest(){
-            this.stPrizeQuestion="";
-            this.stPrizeAnswer="";
-            this.ndPrizeQuestion="";
-            this.ndPrizeAnswer="";
-            this.gPrizes="";
-            this.gRules="";
-            this.gSponsors="";
+        $scope.facilities=[];
+        $scope.webquest={};
+
+        $scope.webquestuntouch={};
+
+        $scope.revert = function(){
+
+            $scope.webquest=angular.copy($scope.webquestuntouch);
+
         }
 
-        var wq = new webquest();
-        wq.stPrizeQuestion="lorem";
-        wq.stPrizeAnswer="opslum";
-        wq.ndPrizeQuestion="lorem 2";
-        wq.ndPrizeAnswer="opsolum 2";
-        wq.gPrizes="the prizes";
-        wq.gRules="the rules";
-        wq.gSponsors="the sponsors";
+        $scope.submit=function(){
+
+            $http.post('http://192.168.1.110:8080/webquest', $scope.webquest).
+                success(function(data, status, headers, config) {
+
+                }).
+                error(function(data, status, headers, config) {
+
+                    /* REMOVE: TODO*/
+                    alert("error");
+                });
+
+        }
+
+
+        $http.get('http://192.168.1.110:8080/webquest/getfacilities').
+            success(function(data, status, headers, config) {
+                $scope.facilities=data;
+            }).
+            error(function(data, status, headers, config) {
+
+                /* REMOVE: TODO*/
+                alert("error");
+            });
+
+
+        $http.get('http://192.168.1.110:8080/webquest').
+            success(function(data, status, headers, config) {
+                // this callback will be called asynchronously
+                // when the response is available
+                $scope.webquest=data;
+                $scope.webquestuntouch= angular.copy(data);
+
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+
+
+
+
+
 
 }]);

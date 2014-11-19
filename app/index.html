@@ -16,23 +16,29 @@
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="bower_components/ng-table/ng-table.min.css" rel="stylesheet">
 
 </head>
 <body>
 
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+<!-- LOGIN FORM -->
+<div class="container">
+    <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+</div> <!-- /container -->
+<!-- #LOGIN FORM -->
+
+<div style="background-color: red" ng-if=""> IS LOGGED </div>
 
 
-<nav class="navbar navbar-default" role="navigation">
+<!-- NAV MENU -->
+<nav class="navbar navbar-default" role="navigation" ng-controller="navCtrl">
 
     <!-- toggleBTN  for mobile display -->
     <div class="navbar-header">
@@ -48,19 +54,23 @@
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
 
         <ul class="nav navbar-nav">
-            <li><a href="#/selectwinners">Select Winners</a></li>
-            <li><a href="#/listwinners">List Winners</a></li>
-            <li><a href="#/listplayers">List Players</a></li>
-            <li class="active"><a href="#/editquest"> Edit 1st/2nd Quests</a></li>
+            <li ng-class="isActive('/selectwinners')"><a href="#/selectwinners" >Select Winners</a></li>
+            <li ng-class="isActive('/listwinners')"><a href="#/listwinners">List Winners</a></li>
+            <li ng-class="isActive('/listplayers')"><a href="#/listplayers">List Players</a></li>
+            <li ng-class="isActive('/editquest')"><a href="#/editquest" > Edit 1st/2nd Quests</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Direita</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
+<!-- #NAV MENU -->
 
 
+<!-- MAIN CONTENT DIV -->
   <div class="container" ng-view></div>
+<!-- #MAIN CONTENT DIV -->
+
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -75,15 +85,13 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
-
   <script type="text/javascript" src="bower_components/tinymce/tinymce.min.js"></script>
   <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
   <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
+  <script type="text/javascript" src="bower_components/ng-table/ng-table.min.js"></script>
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <!-- Include all compiled plugins (below), or include individual files as needed -->
-
 </body>
 </html>

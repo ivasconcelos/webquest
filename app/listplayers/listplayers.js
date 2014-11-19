@@ -9,6 +9,37 @@ angular.module('listplayers', ['ngRoute'])
   });
 }])
 
-.controller('ListPlayersCtrl', [function() {
+.controller('ListPlayersCtrl', ['$scope', 'ngTableParams', '$http', function($scope, ngTableParams, $http) {
 
-}]);
+        $scope.players=[];
+
+
+        $http.get('http://192.168.1.110:8080/webquest/listplayers').
+            success(function(data, status, headers, config) {
+                $scope.players=data;
+
+
+            }).
+            error(function(data, status, headers, config) {
+                alert("error");
+
+            });
+
+
+
+
+
+
+
+
+        $scope.tableParams = new ngTableParams({
+            page: 2,            // show first page
+            count: 2           // count per page
+        }, {
+            total: $scope.players.length, // length of data
+            getData: function($defer, params) {
+                $defer.resolve($scope.players.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            }
+        });
+
+    }]);

@@ -9,6 +9,8 @@ angular.module('selectwinners', ['ngRoute'])
   });
 }])
 
-.controller('SelectWinnersCtrl', [function() {
+.controller('SelectWinnersCtrl', '$scope' [function($scope) {
+
+
 
 }]);

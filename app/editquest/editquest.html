@@ -19,14 +19,16 @@
                 <!-- 1st Question -->
                 <div class="form-group">
                     <label> 1st Question </label>
-                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Question1"></textarea>
                 </div>
                 <!-- Facility -->
                 <div class="form-group">
-                    <label> Facility </label>
-                    <select>
-                        <option> Lorem Ipslum</option>
-                    </select>
+                    <label> Facility {{webquest.Answer1}} </label>
+                             <select ng-model="webquest.Answer1" ng-options="facility.Id as facility.Name for facility in facilities">
+                                 <option> -- select an option -- </option>
+                             </select>
+
+
                 </div>
             </accordion-group>
         </accordion>
@@ -43,14 +45,15 @@
                 <!-- 2nd Question -->
                 <div class="form-group">
                     <label> 2nd Question </label>
-                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Question2"></textarea>
                 </div>
                 <!-- Day of Month -->
                 <div class="form-group">
-                    <label> Day of Month </label>
-                    <select>
-                        <option> 1</option>
-                    </select>
+                    <label> Day of Month {{webquest.Answer2}} </label>
+
+                    <select ng-model="webquest.Answer2"
+                            ng-options="n for n in [] | range:1:30"
+                           ></select>
                 </div>
             </accordion-group>
         </accordion>
@@ -66,7 +69,7 @@
                 </accordion-heading>
                 <div class="form-group">
                     <label> Prizes </label>
-                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Prizes"></textarea>
                 </div>
             </accordion-group>
         </accordion>
@@ -83,7 +86,7 @@
                 <div class="form-group">
                     <label> Rules </label>
 
-                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Rules"></textarea>
                 </div>
             </accordion-group>
         </accordion>
@@ -99,14 +102,13 @@
                 </accordion-heading>
                 <div class="form-group">
                     <label> Sponsors </label>
-
-                    <textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Sponsors"></textarea>
                 </div>
             </accordion-group>
         </accordion>
         <!-- #Sponsors in Accordion -->
-        <button class="btn btn-default"> Revert</button>
-        <button class="btn btn-default"> Submit</button>
+        <button class="btn btn-default" ng-click="revert()"> Revert</button>
+        <button class="btn btn-default" ng-click="submit()"> Submit</button>
     </form>
 </div>
 

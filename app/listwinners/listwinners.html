@@ -13,9 +13,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td> Pim Pum Pam </td> <td> Pam Tilitilan Tan </td> <td> Noum Pum </td> <td> Silly Tom</td>
+
+        <tr ng-repeat="winner in winners">
+            <td> {{winner.name}} </td>
+            <td> {{winner.email}} </td>
+            <td> {{winner.phone}} </td>
+            <td> {{winner.prizeDate}}</td>
         </tr>
+
         </tbody>
     </table>
 </div>
