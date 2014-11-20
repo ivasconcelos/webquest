@@ -1,16 +1,25 @@
 <!-- Edit WebQuest Page -->
 <div ng-controller="EditQuestCtrl">
 
+
+
+
+
+
     <!-- Page's Title -->
     <p class="page-title"> Edit WebQuest</p>
     <span class="title-line"></span>
 
+
+
+    wqf.quest1.$error.required
     <!-- Form WebQuest -->
-    <form method="post" role="form">
+    <form method="post" role="form" name="wqf">
+
 
         <!-- 1st Question and Facility in Accordion -->
         <accordion close-others="oneAtATime">
-            <accordion-group is-open="status.open">
+            <accordion-group is-open="status.open" ng-style="">
                 <accordion-heading>
                     1st Question and Facility
                     <i class="pull-right glyphicon"
@@ -19,7 +28,12 @@
                 <!-- 1st Question -->
                 <div class="form-group">
                     <label> 1st Question </label>
-                    <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Question1"></textarea>
+                    <div class="fuck">
+                    <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Question1" name="quest1" required>
+                    </textarea>
+                    </div>
+
+                    <input type="text" ng-model="webquest.an" required>
                 </div>
                 <!-- Facility -->
                 <div class="form-group">
@@ -27,12 +41,14 @@
                              <select ng-model="webquest.Answer1" ng-options="facility.Id as facility.Name for facility in facilities">
                                  <option> -- select an option -- </option>
                              </select>
-
-
                 </div>
             </accordion-group>
         </accordion>
         <!-- #1st Question and Facility in Accordion -->
+
+
+
+
 
         <!-- 2nd Question and Day of Month in Accordion -->
         <accordion close-others="oneAtATime">
@@ -68,7 +84,8 @@
                        ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                 </accordion-heading>
                 <div class="form-group">
-                    <label> Prizes </label>
+                    <label> Prizes {{webquest.Prizes}}</label>
+
                     <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Prizes"></textarea>
                 </div>
             </accordion-group>

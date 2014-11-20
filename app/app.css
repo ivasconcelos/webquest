@@ -86,3 +86,24 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+
+/* WEBQUEST PAGE - WEBQUEST FORM */
+
+input.ng-invalid.ng-dirty,
+.fuck textarea.ng-invalid.ng-dirty{
+    background-color: #FA787E;
+    padding: 10px;
+}
+
+input.ng-valid.ng-dirty,
+.fuck textarea.ng-valid.ng-dirty {
+    background-color: #78FA89;
+    padding: 10px;
+}
+
+input.ng-touched,
+.fuck textarea.ng-touched{
+    background-color: #003cb3;
+    padding: 10px;
+}
