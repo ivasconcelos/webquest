@@ -32,12 +32,10 @@
                     <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Question1" name="quest1" required>
                     </textarea>
                     </div>
-
-                    <input type="text" ng-model="webquest.an" required>
                 </div>
                 <!-- Facility -->
                 <div class="form-group">
-                    <label> Facility {{webquest.Answer1}} </label>
+                    <label> Facility </label>
                              <select ng-model="webquest.Answer1" ng-options="facility.Id as facility.Name for facility in facilities">
                                  <option> -- select an option -- </option>
                              </select>
@@ -84,7 +82,7 @@
                        ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                 </accordion-heading>
                 <div class="form-group">
-                    <label> Prizes {{webquest.Prizes}}</label>
+                    <label> Prizes </label>
 
                     <textarea ui-tinymce="tinymceOptions" ng-model="webquest.Prizes"></textarea>
                 </div>
